@@ -1,0 +1,15 @@
+private/
+.env
+.env.*
+!.env.example
+*.sqlite*
+*.db
+*.log
+__pycache__/
+*.pyc
+.DS_Store
+user_data/*
+!user_data/strategies/
+user_data/strategies/*
+!user_data/strategies/ArabicLearningStrategy.py
+!user_data/strategies/test_strategy.py
