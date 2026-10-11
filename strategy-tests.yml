@@ -1,0 +1,17 @@
+name: Strategy tests
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  strategy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test against Freqtrade 2026.9
+        run: >-
+          docker run --rm --entrypoint python
+          -v "$PWD/user_data/strategies:/freqtrade/user_data/strategies:ro"
+          freqtradeorg/freqtrade:2026.9
+          -m unittest discover -s user_data/strategies -p 'test_*.py' -v
